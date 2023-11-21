@@ -1,3 +1,7 @@
+
+var w = window.innerWidth;
+var h = window.innerHeight;  
+
 var weather;
 var api = "https://api.openweathermap.org/data/2.5/weather?";
 var units = "&units=imperial";
@@ -70,15 +74,11 @@ function draw() {
   }
   
   if (weather) {
-    console.log(pressure)
-    // translate(width / 2, height / 2);
-    stroke("#0f0f0f");
-    strokeWeight(1);
-   
 
-    for (let i = 0; i < humidity; i++) {
+    for (let i = 0; i < humidity * 2; i++) { // how many lines are generated
       line(x1(t + i), y1(t + i), x2(t + i) + feelsLike, y2(t + i) + feelsLike);
     }
+
     t += 0.05 * speed;
   }
 }
