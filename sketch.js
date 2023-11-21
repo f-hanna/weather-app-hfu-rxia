@@ -75,11 +75,18 @@ function draw() {
   
   if (weather) {
 
-    var color = colorFunction(temp);
-    colorMode(HSB);
-    stroke(color, 100, 100);
+    // var color = colorFunction(temp);
+    // colorMode(HSB);
 
-    console.log(color)
+    var col = colorUpdate(temp);
+    stroke(col[0]);
+
+    // for (var i = 0; i < stars.length; i++) {
+    //   stars[i].update();
+    //   stars[i].show(col[1]);
+
+    // }
+    
 
     for (let i = 0; i < humidity * 2; i++) { // how many lines are generated
       line(x1(t + i), y1(t + i), x2(t + i) + feelsLike, y2(t + i) + feelsLike);
