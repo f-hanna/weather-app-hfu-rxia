@@ -76,25 +76,34 @@ function draw() {
   if (weather) {
 
     // var color = colorFunction(temp);
-    // colorMode(HSB);
+    // colorMode(HSB);\
+    
 
     var col = colorUpdate(temp);
+
+    background(col[0])
+
     stroke(col[0]);
+
+    
 
     for (var i = 0; i < stars.length; i++) {
       stars[i].update();
       stars[i].show(col[1]);
 
     }
+
+    // var modHumidity = map(humidity, -20, 110, 0, 360)
     
 
-    for (let i = 0; i < humidity * 2; i++) { // how many lines are generated
-      line(x1(t + i), y1(t + i), x2(t + i) + feelsLike, y2(t + i) + feelsLike);
+    for (let i = 0; i < humidity; i++) { // how many lines are generated - humidity
+      line(x1(t + i), y1(t + i), x2(t + i), y2(t + i));
     }
 
     t += 0.05 * speed;
+    
 
-    document.body.style.backgroundColor = col[0];
+    
 
     // colorUpdate();
   
