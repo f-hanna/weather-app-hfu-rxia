@@ -24,7 +24,7 @@ let t = 0;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   input = select('#city');
-  
+
   // var button = select('#submit');
   // button.mousePressed(weatherAsk);
   //create starts
@@ -108,6 +108,15 @@ function draw() {
 
 
     // colorUpdate();
+
+  }
+
+  else {
+
+    background("#fff");
+    translate(width / 2, height / 2);
+    stroke("#0f0f0f");
+    strokeWeight(1);
 
   }
 }
