@@ -1,4 +1,9 @@
-html, body {
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -7,29 +12,34 @@ canvas {
 }
 
 #input_div {
- display: block;
- height: fit-content;
- width: 80vw;
- position: absolute;
- top:30vh;
- left: 10vw;
+  display: block;
+  height: fit-content;
+  width: 80vw;
+  position: absolute;
+  top: 30vh;
+  left: 10vw;
 }
 
 input {
+  display: block;
   text-transform: uppercase;
-    font-size: 10vw;
-    line-height: 0.8;
-    text-align: center;
-    padding: 10px 5px;
-    border: none;
-    border-bottom: 2px solid rgb(132, 132, 132);
-    color:rgba(37, 37, 37, 1);
-    background-color: rgba(255, 255, 255, 0);
-    width: 100%;
+  font-size: 10vw;
+  line-height: 0.8;
+  text-align: center;
+  padding: 10px 5px;
+  border: none;
+  border-bottom: 2px solid rgb(132, 132, 132);
+  color: rgba(37, 37, 37, 1);
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
 }
 
-input:focus-visible {
-  border: none;
+input::-webkit-input-placeholder {
+  transition: 0.3s color;
+}
+
+input:hover::-webkit-input-placeholder, input:focus::-webkit-input-placeholder {
+  color: rgba(37, 37, 37, 1);
 }
 
 #submit {
