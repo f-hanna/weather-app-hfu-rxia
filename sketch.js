@@ -68,10 +68,10 @@ function draw() {
   stroke("#0f0f0f");
   strokeWeight(1);
 
-  // for (var i = 0; i < stars.length; i++) {
-  //   stars[i].update();
-  //   stars[i].show();
-  // }
+  for (var i = 0; i < stars.length; i++) {
+    stars[i].update();
+    stars[i].show(0);
+  }
   
   if (weather) {
 
