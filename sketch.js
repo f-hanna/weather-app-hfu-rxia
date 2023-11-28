@@ -68,10 +68,10 @@ function draw() {
   stroke("#0f0f0f");
   strokeWeight(1);
 
-  for (var i = 0; i < stars.length; i++) {
-    stars[i].update();
-    stars[i].show();
-  }
+  // for (var i = 0; i < stars.length; i++) {
+  //   stars[i].update();
+  //   stars[i].show();
+  // }
   
   if (weather) {
 
@@ -81,11 +81,11 @@ function draw() {
     var col = colorUpdate(temp);
     stroke(col[0]);
 
-    // for (var i = 0; i < stars.length; i++) {
-    //   stars[i].update();
-    //   stars[i].show(col[1]);
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].update();
+      stars[i].show(col[1]);
 
-    // }
+    }
     
 
     for (let i = 0; i < humidity * 2; i++) { // how many lines are generated
@@ -93,6 +93,8 @@ function draw() {
     }
 
     t += 0.05 * speed;
+
+    document.body.style.backgroundColor = col[0];
 
     // colorUpdate();
   

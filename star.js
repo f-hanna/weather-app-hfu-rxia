@@ -20,7 +20,7 @@ function Star() {
     }
   
     this.show = function(color) {
-      fill(0);
+      fill(color);
       noStroke();
   
       var sx = map(this.x / this.z, 0, 1, 0, width);
@@ -34,7 +34,7 @@ function Star() {
   
       this.pz = this.z;
   
-      stroke(0);
+      stroke(color);
       line(px, py, sx, sy);
   
     }
