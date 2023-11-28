@@ -18,6 +18,8 @@ var humidity;
 var pressure;
 var modPressure;
 
+var error = false;
+
 var input; // Declare input variable
 let t = 0;
 
@@ -32,17 +34,6 @@ function setup() {
     stars[i] = new Star();
   }
 
-  // Create an input element and position it at the bottom of the canvas
-  // input = createInput();
-  // input.position(20, height + 20);
-
-  // Create a button to trigger the weatherAsk function
-  // var button = createButton("Input Location");
-  // button.position(input.x + input.width + 10, height + 20);
-  // button.mousePressed(weatherAsk);
-
-  // Call the weatherAsk function initially with the default input value
-  // weatherAsk();
 }
 
 function weatherAsk() {
@@ -53,22 +44,34 @@ function weatherAsk() {
 function gotData(data) {
   // also set variables
   console.log(data);
+
+  if (data && data.cod && data.cod !== 404) {
+    console.log(input.value() + "is not valid")
+    error = true;
+  }
+
   weather = data;
 
-  // establish global variables
-  temp = weather.main.temp;
-  feelsLike = weather.main.feels_like;
-  speed = weather.wind.speed;
-  humidity = weather.main.humidity;
-  clouds = weather.clouds.all;
-  pressure = weather.main.pressure;
-  modPressure = (pow((pressure - 900), 3))
+  if (weather) {
+
+    // establish global variables
+    temp = weather.main.temp;
+    feelsLike = weather.main.feels_like;
+    speed = weather.wind.speed;
+    humidity = weather.main.humidity;
+    clouds = weather.clouds.all;
+    pressure = weather.main.pressure;
+    modPressure = (pow((pressure - 900), 3))
+
+  }
+
+
 }
 
 function draw() {
   background("#fff");
   translate(width / 2, height / 2);
-  stroke("#0f0f0f");
+  // stroke("#0f0f0f");
   strokeWeight(1);
 
   for (var i = 0; i < stars.length; i++) {
@@ -81,28 +84,47 @@ function draw() {
     // var color = colorFunction(temp);
     // colorMode(HSB);\
 
+    if (error) {
 
-    var col = colorUpdate(temp);
+      background("#fff");
 
-    background(col[0])
-
-    stroke(col[0]);
+      stroke("#fff");
 
 
-    for (var i = 0; i < stars.length; i++) {
-      stars[i].update();
-      stars[i].show(col[1]);
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].update();
+        stars[i].show(0);
+
+      }
+
 
     }
 
-    var modHumidity = map(humidity, 0, 100, 50, 200)
+    else {
 
 
-    for (let i = 0; i < modHumidity; i++) { // how many lines are generated - humidity
-      line(x1(t + i), y1(t + i), x2(t + i), y2(t + i));
+      var col = colorUpdate(temp);
+
+      background(col[0])
+
+      stroke(col[1]);
+
+
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].update();
+        stars[i].show(col[1]);
+
+      }
+
+      var modHumidity = map(humidity, 0, 100, 50, 200)
+
+
+      for (let i = 0; i < modHumidity; i++) { // how many lines are generated - humidity
+        line(x1(t + i), y1(t + i), x2(t + i), y2(t + i));
+      }
+
+      t += 0.05 * speed;
     }
-
-    t += 0.05 * speed;
 
 
 
@@ -111,7 +133,7 @@ function draw() {
 
   }
 
-  
+
 }
 
 function x1(t) {
