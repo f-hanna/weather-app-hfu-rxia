@@ -111,14 +111,7 @@ function draw() {
 
   }
 
-  else {
-
-    background("#fff");
-    translate(width / 2, height / 2);
-    stroke("#0f0f0f");
-    strokeWeight(1);
-
-  }
+  
 }
 
 function x1(t) {
