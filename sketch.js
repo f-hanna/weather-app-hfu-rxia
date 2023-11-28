@@ -1,6 +1,6 @@
 
 var w = window.innerWidth;
-var h = window.innerHeight;  
+var h = window.innerHeight;
 
 var weather;
 var api = "https://api.openweathermap.org/data/2.5/weather?";
@@ -23,9 +23,10 @@ let t = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  input=select('#city');
-  var button=select('#submit');
-  button.mousePressed(weatherAsk);
+  input = select('#city');
+  
+  // var button = select('#submit');
+  // button.mousePressed(weatherAsk);
   //create starts
   for (var i = 0; i < 300; i++) {
     stars[i] = new Star();
@@ -74,19 +75,19 @@ function draw() {
     stars[i].update();
     stars[i].show(0);
   }
-  
+
   if (weather) {
 
     // var color = colorFunction(temp);
     // colorMode(HSB);\
-    
+
 
     var col = colorUpdate(temp);
 
     background(col[0])
 
     stroke(col[0]);
-    
+
 
     for (var i = 0; i < stars.length; i++) {
       stars[i].update();
@@ -95,19 +96,19 @@ function draw() {
     }
 
     var modHumidity = map(humidity, 0, 100, 50, 200)
-    
+
 
     for (let i = 0; i < modHumidity; i++) { // how many lines are generated - humidity
       line(x1(t + i), y1(t + i), x2(t + i), y2(t + i));
     }
 
     t += 0.05 * speed;
-    
 
-    
+
+
 
     // colorUpdate();
-  
+
   }
 }
 
