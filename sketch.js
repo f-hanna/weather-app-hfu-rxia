@@ -84,7 +84,6 @@ function draw() {
     background(col[0])
 
     stroke(col[0]);
-
     
 
     for (var i = 0; i < stars.length; i++) {
@@ -93,10 +92,10 @@ function draw() {
 
     }
 
-    // var modHumidity = map(humidity, -20, 110, 0, 360)
+    var modHumidity = map(humidity, 0, 100, 50, 200)
     
 
-    for (let i = 0; i < humidity; i++) { // how many lines are generated - humidity
+    for (let i = 0; i < modHumidity; i++) { // how many lines are generated - humidity
       line(x1(t + i), y1(t + i), x2(t + i), y2(t + i));
     }
 
@@ -119,7 +118,7 @@ function y1(t) {
 }
 
 function x2(t) {
-  return sin(t / 15) * modPressure + sin(t / 25) * modPressure + sin(t / 35) * modPressure;
+  return sin(t / 15) * modPressure + sin(t / 25) * modPressure + sin(t / 35) * modPressure; // radius?
 }
 
 function y2(t) {

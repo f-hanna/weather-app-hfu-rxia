@@ -22,11 +22,20 @@ function Star() {
     this.show = function(color) {
       fill(color);
       noStroke();
+
+      var mod
+
+      if (!humidity) {
+        mod = 16;
+      }
+      else {
+        mod = humidity^2
+      }
   
       var sx = map(this.x / this.z, 0, 1, 0, width);
       var sy = map(this.y / this.z, 0, 1, 0, height);
   
-      var r = map(this.z, 0, width, 16, 0);
+      var r = map(this.z, 0, width, mod, 0);
       ellipse(sx, sy, r, r);
   
       var px = map(this.x / this.pz, 0, 1, 0, width);
