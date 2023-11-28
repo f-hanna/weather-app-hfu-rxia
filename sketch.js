@@ -23,20 +23,22 @@ let t = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  
+  input=select('#city');
+  var button=select('#submit');
+  button.mousePressed(weatherAsk);
   //create starts
   for (var i = 0; i < 300; i++) {
     stars[i] = new Star();
   }
 
   // Create an input element and position it at the bottom of the canvas
-  input = createInput();
-  input.position(20, height + 20);
+  // input = createInput();
+  // input.position(20, height + 20);
 
   // Create a button to trigger the weatherAsk function
-  var button = createButton("Input Location");
-  button.position(input.x + input.width + 10, height + 20);
-  button.mousePressed(weatherAsk);
+  // var button = createButton("Input Location");
+  // button.position(input.x + input.width + 10, height + 20);
+  // button.mousePressed(weatherAsk);
 
   // Call the weatherAsk function initially with the default input value
   // weatherAsk();
