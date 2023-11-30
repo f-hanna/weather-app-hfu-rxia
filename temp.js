@@ -5,82 +5,64 @@ function colorUpdate(temp) {
     var color;
     var bg;
 
-    if (temp > 80) {
+    if (temp > 90) {
 
-        color = "#FD9415"
-        bg = "#E23201"
+        console.log("color combo 1")
+
+        color = "#FFEEBC"
+        bg = "#FDCD01"
 
 
 
-    } else if (temp > 70) {
+    } else if (temp > 80) {
 
-        color = "#EE92C2"
-        bg = "#B6174B"
+        console.log("color combo 2")
+
+        color = "#FCEDDA"
+        bg = "#EE4E34"
 
 
     }
+    else if (temp > 70) {
+
+        color = "#FF69B4"
+        bg = "#00FFFF"
+
+
+    }
+
     else if (temp > 60) {
 
         color = "#F0DA5D"
         bg = "#7B145F"
 
-        // backg = document.getElementById("containerhelp"
-        // backg.style.backgroundColor = "#7B145F"
-        // bg = "background: radial-gradient(ellipse at bottom, rgb(123, 20, 95),rgb(70, 11, 55))";
-        // backg.style = bg;
-        // document.documentElement.style.setProperty("--clr", "rgba(240, 218, 93,0.9)"
-        // for(var i = 0; i < blobz.length; i++) {
-        //   blobz[i].style.backgroundColor = "#F0DA5D"
-        // }
     }
     else if (temp > 50) {
 
-        color = "#FF1493"
-        bg = "#CC9900"
+        color = "#CC9900"
+        bg = "#FF1493"
 
 
-        // backg = document.getElementById("containerhelp"
-        // backg.style.backgroundColor = "#CC9900"
-        // bg = "background: radial-gradient(ellipse at bottom, rgb(255, 192, 0),rgb(204, 153, 0))";
-        // backg.style = bg;
-        // document.documentElement.style.setProperty("--clr", "rgba(255,20,147,0.9)"
-        // for(var i = 0; i < blobz.length; i++) {
-        //   blobz[i].style.backgroundColor = "#FF1493"
-        // }
     }
     else if (temp > 40) {
 
         color = "#E8630A"
         bg = "#8AC1C1"
 
-
-
-        // backg = document.getElementById("containerhelp"
-        // backg.style.backgroundColor = "#8AC1C1"
-        // bg = "background: radial-gradient(ellipse at bottom, rgb(138, 193, 193),rgb(138, 193, 193))";
-        // backg.style = bg;
-        // document.documentElement.style.setProperty("--clr", "rgba(232, 99, 10,0.9)"
-        // for(var i = 0; i < blobz.length; i++) {
-        //   blobz[i].style.backgroundColor = "#E8630A"
-        // }
     }
     else if (temp > 30) {
 
-        color = "#A3CEF1"
-        bg = "#2364AA"
+         color = "#3C41E5"
+        bg = "#CEB0FA"
 
-
-
-        // backg = document.getElementById("containerhelp"
-        // backg.style.backgroundColor = "#2364AA"
-        // bg = "background: radial-gradient(ellipse at bottom, rgb(35, 100, 170),rgb(24, 70, 119))";
-        // backg.style = bg;
-        //  document.documentElement.style.setProperty("--clr", "rgba(163, 206, 241,0.9)"
-        // for(var i = 0; i < blobz.length; i++) {
-        //   blobz[i].style.backgroundColor = "#A3CEF1"
-        // }
     }
     else if (temp > 20) {
+
+        color = "#CCF381"
+        bg = "#4831D4"
+
+    }
+    else if (temp > 10) {
 
         color = "#CEF2F2"
         bg = "#012E40"
@@ -88,8 +70,8 @@ function colorUpdate(temp) {
     }
     else {
 
-        color = "#2364AA"
-        bg = "#0F084B"
+        color = "#7A2048"
+        bg = "#1E2761"
 
     }
 
