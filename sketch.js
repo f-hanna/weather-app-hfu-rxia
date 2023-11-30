@@ -39,6 +39,8 @@ function setup() {
 function weatherAsk() {
   var url = api + "q=" + input.value() + APIkey + units;
   loadJSON(url, gotData);
+  var locationInput = document.getElementById('city');
+  locationInput.style.border = 'none';
 }
 
 function gotData(data) {

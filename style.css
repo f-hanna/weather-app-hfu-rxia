@@ -3,7 +3,7 @@
 }
 
 html,
-body {
+body, p {
   margin: 0;
   padding: 0;
 }
@@ -11,14 +11,8 @@ canvas {
   display: block;
 }
 
-#input_div {
-  display: block;
-  height: fit-content;
-  width: 80vw;
-  position: absolute;
-  top: 30vh;
-  left: 10vw;
-}
+/* #input_div {
+} */
 
 input {
   display: block;
@@ -31,19 +25,27 @@ input {
   border-bottom: 2px solid rgb(132, 132, 132);
   color: rgba(37, 37, 37, 1);
   background-color: rgba(255, 255, 255, 0);
-  width: 100%;
+  width: 80%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -60%);
 }
 
 input::-webkit-input-placeholder {
   transition: 0.3s color;
 }
 
-input:hover::-webkit-input-placeholder, input:focus::-webkit-input-placeholder {
+input:hover::-webkit-input-placeholder,
+input:focus::-webkit-input-placeholder {
   color: rgba(37, 37, 37, 1);
 }
 
-input:focus, input.form-control:focus {
-  outline:none !important;
+input:focus,
+input.form-control:focus {
+  outline: none !important;
   outline-width: 0 !important;
   box-shadow: none;
   -moz-box-shadow: none;
