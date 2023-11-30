@@ -84,26 +84,7 @@ function draw() {
     // var color = colorFunction(temp);
     // colorMode(HSB);\
 
-    if (error) {
-
-      background("#fff");
-
-      stroke("#fff");
-
-
-      for (var i = 0; i < stars.length; i++) {
-        stars[i].update();
-        stars[i].show(0);
-
-      }
-
-
-    }
-
-    else {
-
-
-      var col = colorUpdate(temp);
+    var col = colorUpdate(temp);
 
       background(col[0])
 
@@ -124,8 +105,6 @@ function draw() {
       }
 
       t += 0.05 * speed;
-    }
-
 
 
 
