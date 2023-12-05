@@ -92,5 +92,6 @@ input.form-control:focus {
   border-radius: 8px;
   color: white;
   width: 100px;
-
+  font-size: 12px;
+  line-height: 130%;
 }
