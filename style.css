@@ -85,13 +85,13 @@ input.form-control:focus {
 #info:hover + .hide {
   display: block;
   position: absolute;
-  top: 12%;
-  left: 90%;
-  padding: 5px;
+  top: 4%;
+  left: 78%;
+  padding: 15px;
   background-color: rgba(37, 37, 37, 0.5);
   border-radius: 8px;
   color: white;
-  width: 100px;
+  width: 175px;
   font-size: 12px;
-  line-height: 130%;
+  line-height: 140%;
 }
