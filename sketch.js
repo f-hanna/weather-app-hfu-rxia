@@ -38,21 +38,28 @@ function setup() {
 
 function weatherAsk() {
   var url = api + "q=" + input.value() + APIkey + units;
-  loadJSON(url, gotData);
+  loadJSON(url, gotData, (err) => {
+    // console.log(err);
+    console.log(input.value() + " is not a valid location");
+
+    if (err) {
+      // console.log("calling default location");
+      error = true;
+      defaultPattern();
+    }
+    // defaultPattern();
+  });
   var locationInput = document.getElementById('city');
   locationInput.style.border = 'none';
 }
+
 
 function gotData(data) {
   // also set variables
   console.log(data);
 
-  if (data && data.cod && data.cod !== 404) {
-    console.log(input.value() + "is not valid")
-    error = true;
-  }
-
   weather = data;
+  error = false;
 
   if (weather) {
 
@@ -70,12 +77,31 @@ function gotData(data) {
 
 }
 
-function draw() {
-  background("#fff");
-  translate(width / 2, height / 2);
-  // stroke("#0f0f0f");
-  strokeWeight(2);
+function defaultPattern() {
+  console.log("inside default location");
 
+  // Set background to white
+  background("#fff");
+  stroke("#fff")
+  // Translate to the center of the canvas
+  // translate(width / 2, height / 2);
+
+  // Draw stars
+  for (var i = 0; i < stars.length; i++) {
+    stars[i].update();
+    stars[i].show(0);
+  }
+}
+
+
+function draw() {
+  clear();
+  background("#fff");
+  stroke("#fff")
+  // Translate to the center of the canvas
+  translate(width / 2, height / 2);
+
+  // Draw stars
   for (var i = 0; i < stars.length; i++) {
     stars[i].update();
     stars[i].show(0);
@@ -112,6 +138,10 @@ function draw() {
 
     // colorUpdate();
 
+  }
+
+  if (error) {
+    defaultPattern();
   }
 
 
