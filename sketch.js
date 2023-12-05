@@ -112,6 +112,8 @@ function draw() {
     // var color = colorFunction(temp);
     // colorMode(HSB);\
 
+    clear();
+
     var col = colorUpdate(temp);
 
       background(col[0])
@@ -141,6 +143,7 @@ function draw() {
   }
 
   if (error) {
+    clear();
     defaultPattern();
   }
 
