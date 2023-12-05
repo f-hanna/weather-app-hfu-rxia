@@ -40,14 +40,10 @@ function weatherAsk() {
   var url = api + "q=" + input.value() + APIkey + units;
   loadJSON(url, gotData, (err) => {
     // console.log(err);
-    console.log(input.value() + " is not a valid location");
+    // console.log(input.value() + " is not a valid location");
+    error = true;
 
-    if (err) {
-      // console.log("calling default location");
-      error = true;
-      defaultPattern();
-    }
-    // defaultPattern();
+    
   });
   var locationInput = document.getElementById('city');
   locationInput.style.border = 'none';
@@ -78,7 +74,6 @@ function gotData(data) {
 }
 
 function defaultPattern() {
-  console.log("inside default location");
 
   // Set background to white
   background("#fff");
