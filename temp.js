@@ -7,7 +7,7 @@ function colorUpdate(temp) {
 
     if (temp > 90) {
 
-        console.log("color combo 1")
+        // console.log("color combo 1")
 
         color = "#FFEEBC"
         bg = "#FDCD01"
@@ -16,7 +16,7 @@ function colorUpdate(temp) {
 
     } else if (temp > 80) {
 
-        console.log("color combo 2")
+        // console.log("color combo 2")
 
         color = "#FCEDDA"
         bg = "#EE4E34"
