@@ -106,7 +106,7 @@ function draw() {
         line(x1(t + i), y1(t + i), x2(t + i), y2(t + i));
       }
 
-      t += 0.03 * speed;
+      t += 0.03 * speed + 0.005;
 
 
 

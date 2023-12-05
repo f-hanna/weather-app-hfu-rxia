@@ -10,7 +10,7 @@ function Star() {
     this.pz = this.z;
   
     this.update = function() {
-      this.z = this.z - speed * 0.4;
+      this.z = this.z - speed * 0.4 - 0.05;
       if (this.z < 1) {
         this.z = width;
         this.x = random(-width, width);
