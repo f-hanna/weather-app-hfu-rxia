@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-}
+  font-family: 'Poppins', sans-serif;}
 
 html,
 body, p {
@@ -55,4 +55,42 @@ input.form-control:focus {
 #submit {
   text-transform: uppercase;
   background-color: rgba(255, 255, 255, 0);
+}
+
+.fa-solid {
+  display: block;
+  font-size: 3vw;
+  text-align: center;
+}
+
+#info {
+  border: none;
+  color: rgba(37, 37, 37, 0.5);
+  background-color: rgba(255, 255, 255, 0);
+  transition: 0.3s color;
+  
+  position: absolute;
+  top: 5%;
+  left: 92%;
+}
+
+#info:hover {
+  color: rgba(37, 37, 37, 1);
+}
+
+.hide {
+  display: none;
+}
+
+#info:hover + .hide {
+  display: block;
+  position: absolute;
+  top: 12%;
+  left: 90%;
+  padding: 5px;
+  background-color: rgba(37, 37, 37, 0.5);
+  border-radius: 8px;
+  color: white;
+  width: 100px;
+
 }
