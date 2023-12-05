@@ -1,4 +1,3 @@
-
 var w = window.innerWidth;
 var h = window.innerHeight;
 
@@ -22,10 +21,11 @@ var error = false;
 
 var input; // Declare input variable
 let t = 0;
+var weatherInfo = "Type in a city to display weather data";
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  input = select('#city');
+  input = select("#city");
 
   // var button = select('#submit');
   // button.mousePressed(weatherAsk);
@@ -33,7 +33,6 @@ function setup() {
   for (var i = 0; i < 300; i++) {
     stars[i] = new Star();
   }
-
 }
 
 function weatherAsk() {
@@ -42,13 +41,10 @@ function weatherAsk() {
     // console.log(err);
     // console.log(input.value() + " is not a valid location");
     error = true;
-
-    
   });
-  var locationInput = document.getElementById('city');
-  locationInput.style.border = 'none';
+  var locationInput = document.getElementById("city");
+  locationInput.style.border = "none";
 }
-
 
 function gotData(data) {
   // also set variables
@@ -58,7 +54,6 @@ function gotData(data) {
   error = false;
 
   if (weather) {
-
     // establish global variables
     temp = weather.main.temp;
     feelsLike = weather.main.feels_like;
@@ -66,18 +61,20 @@ function gotData(data) {
     humidity = weather.main.humidity;
     clouds = weather.clouds.all;
     pressure = weather.main.pressure;
-    modPressure = (pow((pressure - 900), 3))
+    modPressure = pow(pressure - 900, 3);
 
+    // Creating a string representation of the weather data
+    weatherInfo = `Temperature: ${temp}&deg;F<br>
+    Wind Speed: ${speed} mph<br>
+    Humidity: ${humidity}%<br>
+    Pressure: ${pressure} hPa<br>`;
   }
-
-
 }
 
 function defaultPattern() {
-
   // Set background to white
   background("#fff");
-  stroke("#fff")
+  stroke("#fff");
   // Translate to the center of the canvas
   // translate(width / 2, height / 2);
   speed = 1;
@@ -89,11 +86,10 @@ function defaultPattern() {
   }
 }
 
-
 function draw() {
   clear();
   background("#fff");
-  stroke("#fff")
+  stroke("#fff");
   // Translate to the center of the canvas
   translate(width / 2, height / 2);
 
@@ -104,7 +100,6 @@ function draw() {
   }
 
   if (weather) {
-
     // var color = colorFunction(temp);
     // colorMode(HSB);\
 
@@ -112,41 +107,39 @@ function draw() {
 
     var col = colorUpdate(temp);
 
-      background(col[0])
+    background(col[0]);
 
-      stroke(col[1]);
+    stroke(col[1]);
 
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].update();
+      stars[i].show(col[1]);
+    }
 
-      for (var i = 0; i < stars.length; i++) {
-        stars[i].update();
-        stars[i].show(col[1]);
+    var modHumidity = map(humidity, 0, 100, 5, 50);
 
-      }
+    for (let i = 0; i < modHumidity; i++) {
+      // how many lines are generated - humidity
+      line(x1(t + i), y1(t + i), x2(t + i), y2(t + i));
+    }
 
-      var modHumidity = map(humidity, 0, 100, 5, 50)
-
-
-      for (let i = 0; i < modHumidity; i++) { // how many lines are generated - humidity
-        line(x1(t + i), y1(t + i), x2(t + i), y2(t + i));
-      }
-
-      t += 0.03 * speed + 0.005;
-
-
+    t += 0.03 * speed + 0.005;
 
     // colorUpdate();
-
   }
 
   if (error) {
     clear();
     defaultPattern();
+    weatherInfo = "Type in a city to display weather data";
+
   }
 
+  document.getElementById("data").innerHTML = weatherInfo;
 
 }
 
-//radius 
+//radius
 
 function x1(t) {
   return sin(t / 10) * (pressure - 950);
@@ -157,9 +150,13 @@ function y1(t) {
 }
 
 function x2(t) {
-  return sin(t / 15) * pressure + sin(t / 25) * pressure + sin(t / 35) * pressure; // length of the lines
+  return (
+    sin(t / 15) * pressure + sin(t / 25) * pressure + sin(t / 35) * pressure
+  ); // length of the lines
 }
 
 function y2(t) {
-  return cos(t / 15) * pressure + cos(t / 25) * pressure + cos(t / 35) * pressure;
+  return (
+    cos(t / 15) * pressure + cos(t / 25) * pressure + cos(t / 35) * pressure
+  );
 }
