@@ -80,6 +80,7 @@ function defaultPattern() {
   stroke("#fff")
   // Translate to the center of the canvas
   // translate(width / 2, height / 2);
+  speed = 1;
 
   // Draw stars
   for (var i = 0; i < stars.length; i++) {
