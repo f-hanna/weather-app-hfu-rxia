@@ -17,7 +17,7 @@ canvas {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -60%); 
-  width: 60%;
+  width: 80%;
 }
 
 input {
@@ -105,10 +105,34 @@ input.form-control:focus {
 /*  QUESTION */
 
 #question-holder {
-  /* margin-left: 10%; */
   display: flex;
-  position: absolute;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack elements vertically */
+  height: 100%; /* Full height of the container */
+}
+
+#question {
+  color: rgb(255, 255, 255);
+  background-color: rgba(37, 37, 37, 0.75);
+  padding: 5px 10px;
+  border-radius: 30px;
+
+}
+
+#question-btn {
+  margin-top: 12px;
+  background: none; /* Remove background color */
+  cursor: pointer; /* Add pointer cursor for better user experience */
+  border: none;
   
-  left: 50%;
-  transform: translateX(-50%); /* Center horizontally only */
+}
+
+#question-btn i {
+  color: rgb(255, 255, 255);
+  background-color: rgba(37, 37, 37, 0.75);
+  border-radius: 300px;
+  padding: 10px;
+  font-size: 20px; /* Adjust font-size to control icon size */
+
 }
