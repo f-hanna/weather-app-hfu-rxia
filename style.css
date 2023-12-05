@@ -11,8 +11,14 @@ canvas {
   display: block;
 }
 
-/* #input_div {
-} */
+#input_div {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%); 
+  width: 80%;
+}
 
 input {
   display: block;
@@ -25,13 +31,13 @@ input {
   border-bottom: 2px solid rgb(132, 132, 132);
   color: rgba(37, 37, 37, 1);
   background-color: rgba(255, 255, 255, 0);
-  width: 80%;
+  width: 100%;
 
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -60%); */
 }
 
 input::-webkit-input-placeholder {
@@ -94,4 +100,39 @@ input.form-control:focus {
   width: 175px;
   font-size: 12px;
   line-height: 140%;
+}
+
+/*  QUESTION */
+
+#question-holder {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack elements vertically */
+  height: 100%; /* Full height of the container */
+}
+
+#question {
+  color: rgb(255, 255, 255);
+  background-color: rgba(37, 37, 37, 0.75);
+  padding: 5px 10px;
+  border-radius: 30px;
+
+}
+
+#question-btn {
+  margin-top: 12px;
+  background: none; /* Remove background color */
+  cursor: pointer; /* Add pointer cursor for better user experience */
+  border: none;
+  
+}
+
+#question-btn i {
+  color: rgb(255, 255, 255);
+  background-color: rgba(37, 37, 37, 0.75);
+  border-radius: 300px;
+  padding: 10px;
+  font-size: 20px; /* Adjust font-size to control icon size */
+
 }
