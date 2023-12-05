@@ -86,7 +86,7 @@ input.form-control:focus {
   display: block;
   position: absolute;
   top: 4%;
-  left: 78%;
+  right: 8%;
   padding: 15px;
   background-color: rgba(37, 37, 37, 0.5);
   border-radius: 8px;
