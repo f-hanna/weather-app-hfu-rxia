@@ -20,20 +20,31 @@ const locationQuestions = [
     "What city do you associate with your favorite type of cuisine?",
     "What is your favorite city to visit?"
   ];
+
+  // Function to simulate typing effect
+  function typeEffect(element, text, speed) {
+    let i = 0;
+    console.log(speed)
+    const typingInterval = setInterval(() => {
+      element.innerHTML += text.charAt(i);
+      i++;
+      if (i > text.length) {
+        clearInterval(typingInterval);
+      }
+    }, speed);
+  }
   
   
   // Function to get a random question from the array
   function getRandomQuestion() {
     const randomIndex = Math.floor(Math.random() * locationQuestions.length);
-    return locationQuestions[randomIndex];
+    const randomQuestion = locationQuestions[randomIndex];
+    console.log(randomQuestion)
+    const questionElement = document.getElementById("question");
+    questionElement.innerText = ""; // Clear existing text
+    typeEffect(questionElement, randomQuestion, 50); // Typing speed: 50 milliseconds per character
   }
-  
+
   // Event listener for the button click
-  document.getElementById("question-btn").addEventListener("click", function() {
-    // Get a random question
-    const randomQuestion = getRandomQuestion();
-  
-    // Display the random question in the #question element
-    document.getElementById("question").innerText = randomQuestion;
-  });
+  document.getElementById("question-btn").addEventListener("click", getRandomQuestion);
   
