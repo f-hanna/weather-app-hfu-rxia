@@ -21,7 +21,7 @@ var error = false;
 
 var input; // Declare input variable
 let t = 0;
-var weatherInfo = "Type in a city to display weather data";
+var weatherInfo = "Enter a destination above to get weather data";
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -131,7 +131,7 @@ function draw() {
   if (error) {
     clear();
     defaultPattern();
-    weatherInfo = "Type in a city to display weather data";
+    weatherInfo = "Enter a destination above to get weather data";
 
   }
 

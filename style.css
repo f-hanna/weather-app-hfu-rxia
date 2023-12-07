@@ -84,7 +84,7 @@ input.form-control:focus {
   color: rgba(37, 37, 37, 1);
 }
 
-.hide {
+/* .hide {
   display: none;
 }
 
@@ -100,6 +100,21 @@ input.form-control:focus {
   width: 175px;
   font-size: 12px;
   line-height: 140%;
+} */
+
+.show {
+  display: block;
+  position: absolute;
+  bottom: 4%;
+  right: 2%;
+  padding: 15px;
+  color: rgb(255, 255, 255);
+  width:180px;
+  font-size: 12px;
+  line-height: 140%;
+  font-weight: 400;
+  background-color: rgba(37, 37, 37, 0.4);
+  border-radius: 8px;
 }
 
 /*  QUESTION */
